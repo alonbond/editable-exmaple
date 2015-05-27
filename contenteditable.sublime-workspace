@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"spa",
+				"span	Tag"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
 				"sp",
 				"span	Tag"
 			],
@@ -491,6 +499,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "js/app.js",
+			"settings":
+			{
+				"buffer_size": 51,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 3388,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/controllers/MainController.js",
+			"settings":
+			{
+				"buffer_size": 74,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -536,7 +568,11 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/alonbond/pharmpool/contenteditable-example"
+		"/Users/alonbond/pharmpool/contenteditable-example",
+		"/Users/alonbond/pharmpool/contenteditable-example/js",
+		"/Users/alonbond/pharmpool/contenteditable-example/js/controllers",
+		"/Users/alonbond/Desktop/Development/Angular/developing/bookshelf_codeacademy",
+		"/Users/alonbond/Desktop/Development/Angular/developing/bookshelf_codeacademy/js"
 	],
 	"file_history":
 	[
@@ -671,8 +707,96 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 51,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								44
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2519,
+								2519
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1342.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/controllers/MainController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 74,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								30,
+								30
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],

@@ -17,94 +17,106 @@
 	<div class="row orbit-container" ng-controller="MainController">
 
 		<form name="myForm">
-			<h2>Before using Cipralex ...</h2>
+			<div ng-repeat="medicine in medicines track by $index">
+				<h2>Before using {{medicine.name}} ...</h2>
 
-			<div class="row">
-				<div class="large-2 columns">
-					<h5>Medicine/Family</h5>
-					<select ng-model="medicineFamily">
-						<option>MAOI</option>
-						<option>TYPE B</option>
-						<option>TYPE C</option>
-					</select>
+				<div class="row">
+					<div class="large-2 columns">
+						<h5>Medicine/Family</h5>
+						<select ng-model="medicine.family">
+							<option>MAOI</option>
+							<option>TYPE B</option>
+							<option>TYPE C</option>
+						</select>
+					</div>
+					<div class="large-1 columns">
+						<h5>Boxed</h5>
+						<input type="radio" checked />
+					</div>
+					<div class="large-2 columns">
+						<h5>Type</h5>
+						<select>
+							<option>Contarindication</option>
+							<option>Warning</option>
+						</select>
+					</div>
+					<div class="large-3 columns">
+						<h5>Indication</h5>
+						<input type="text"/>
+					</div>
+					<div class="large-4 columns">
+						<h5>Examples</h5>
+						<textarea ng-model="medicine.medicineExmaples"></textarea>
+					</div>
 				</div>
-				<div class="large-1 columns">
-					<h5>Boxed</h5>
-					<input type="radio" checked />
-				</div>
-				<div class="large-2 columns">
-					<h5>Type</h5>
-					<select>
-						<option>Contarindication</option>
-						<option>Warning</option>
-					</select>
-				</div>
-				<div class="large-3 columns">
-					<h5>Indication</h5>
-					<input type="text"/>
-				</div>
-				<div class="large-4 columns">
-					<h5>Examples</h5>
-					<textarea ng-model="medicineExmaples"></textarea>
+
+				<div class="row">
+					<div class="large-2 columns">
+						<h5>Wait Before</h5>
+						<input type="text" ng-model="medicine.waitBefore" />
+					</div>
+					<div class="large-1 columns">
+						<h5>Unit</h5>
+						<select ng-model="medicine.unitBefore">
+							<option>Days</option>
+							<option>Hours</option>
+						</select>
+					</div>
+					<div class="large-2 columns">
+						<h5>Wait After</h5>
+						<input type="text" ng-model="medicine.waitAfter"/>
+					</div>
+					<div class="large-1 columns">
+						<h5>Unit</h5>
+						<select ng-model="medicine.unitAfter">
+							<option>Days</option>
+							<option>Hours</option>
+						</select>
+					</div>
+					<div class="large-6 columns">
+					</div>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="large-2 columns">
-					<h5>Wait Before</h5>
-					<input type="text" ng-model="waitBefore"/>
-				</div>
-				<div class="large-1 columns">
-					<h5>Unit</h5>
-					<select ng-model="unitBefore">
-						<option>Days</option>
-						<option>Hours</option>
-					</select>
-				</div>
-				<div class="large-2 columns">
-					<h5>Wait After</h5>
-					<input type="text" ng-model="waitAfter"/>
-				</div>
-				<div class="large-1 columns">
-					<h5>Unit</h5>
-					<select ng-model="unitAfter">
-						<option>Days</option>
-						<option>Hours</option>
-					</select>
-				</div>
-				<div class="large-6 columns">
-				</div>
-			</div>
+			<button ng-click="addMedicine()">Add Medicine</button>
+			<button ng-click="removeMedicine()">Remove Last</button>
+
 		</form>
 		<hr/>
 
 		<div class="row">
 			<div class="large-12 columns">
 				<h4>Outcome input</h4>
-				<div>
+				<div ng-repeat="medicine in medicines track by $index">
 					<span contenteditable="true">
 						If you take other medicines which belong to the
 					</span>
 					<span contenteditable="false" style="font-weight: bold">
-						{{medicineFamily}}
+						{{medicine.family}}
 					</span>
-					<span contenteditable="false" style="font-weight: bold" ng-show="medicineExmaples.length">
-						such as {{medicineExmaples}}
+					<span contenteditable="false" style="font-weight: bold" ng-show="medicine.medicineExmaples.length">
+						such as {{medicine.medicineExmaples}}.
 					</span>
-					<span contenteditable="true">
-						Cipralex may be started 
+
+					<span ng-show="medicine.waitBefore > 0">
+						<span contenteditable="true">
+							Cipralex may be started 
+						</span>
+						<span contenteditable="false" style="font-weight: bold">
+							{{medicine.waitBefore}} {{medicine.unitBefore}} 
+						</span>
+						<span contenteditable="true">
+							after discontinuing treatment with MAO inhibitors 
+						</span>
 					</span>
-					<span contenteditable="false" style="font-weight: bold">
-						{{waitBefore}} {{unitBefore}} 
-					</span>
-					<span contenteditable="true">
-						after discontinuing treatment with MAO inhibitors and at least 
-					</span>
-					<span contenteditable="false" style="font-weight: bold">
-						{{waitAfter}} {{unitAfter}}
-					</span>
-					<span contenteditable="true">
-						should elapse after discontinuing Cipralex treatment before starting treatment with MAO inhibitors
+
+					<span ng-show="medicine.waitAfter > 0"> 
+						<span contenteditable="false" style="font-weight: bold">
+							and at least  {{medicine.waitAfter}} {{medicine.unitAfter}}
+						</span>
+						<span contenteditable="true">
+							should elapse after discontinuing Cipralex treatment before starting treatment with MAO inhibitors
+						</span>
 					</span>
 				</div>
 			</div>
