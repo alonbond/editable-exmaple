@@ -15,15 +15,15 @@
 </head>
 <body ng-app="brouchureWidgetApp">
 	<div class="row orbit-container" ng-controller="MainController">
-
+		<br />
 		<form name="myForm">
-			<div ng-repeat="medicine in medicines track by $index">
-				<h2>Before using {{medicine.name}} ...</h2>
+			<div ng-repeat="contarindication in contarindications track by $index">
+				<h2>Before using {{contarindication.name}} ...</h2>
 
 				<div class="row">
 					<div class="large-2 columns">
 						<h5>Medicine/Family</h5>
-						<select ng-model="medicine.family">
+						<select ng-model="contarindication.family">
 							<option>MAOI</option>
 							<option>TYPE B</option>
 							<option>TYPE C</option>
@@ -45,30 +45,30 @@
 						<input type="text"/>
 					</div>
 					<div class="large-4 columns">
-						<h5>Examples</h5>
-						<textarea ng-model="medicine.medicineExmaples"></textarea>
+						<h5>Examples</h5> <!-- Such as Phenelzine, Iproniazid, Isocarboxazid, Nialamide, Tranylcypromine -->
+						<textarea ng-model="contarindication.medicineExmaples"></textarea>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="large-2 columns">
 						<h5>Wait Before</h5>
-						<input type="text" ng-model="medicine.waitBefore" />
+						<input type="text" ng-model="contarindication.waitBefore" />
 					</div>
 					<div class="large-1 columns">
 						<h5>Unit</h5>
-						<select ng-model="medicine.unitBefore">
+						<select ng-model="contarindication.unitBefore">
 							<option>Days</option>
 							<option>Hours</option>
 						</select>
 					</div>
 					<div class="large-2 columns">
 						<h5>Wait After</h5>
-						<input type="text" ng-model="medicine.waitAfter"/>
+						<input type="text" ng-model="contarindication.waitAfter"/>
 					</div>
 					<div class="large-1 columns">
 						<h5>Unit</h5>
-						<select ng-model="medicine.unitAfter">
+						<select ng-model="contarindication.unitAfter">
 							<option>Days</option>
 							<option>Hours</option>
 						</select>
@@ -78,8 +78,8 @@
 				</div>
 			</div>
 
-			<button ng-click="addMedicine()">Add Medicine</button>
-			<button ng-click="removeMedicine()">Remove Last</button>
+			<button ng-click="addContraindication()">Add Contarindication</button>
+			<button ng-click="removeContraindication()">Remove Last</button>
 
 		</form>
 		<hr/>
@@ -87,32 +87,32 @@
 		<div class="row">
 			<div class="large-12 columns">
 				<h4>Outcome input</h4>
-				<div ng-repeat="medicine in medicines track by $index">
+				<div ng-repeat="contarindication in contarindications track by $index">
 					<span contenteditable="true">
 						If you take other medicines which belong to the
 					</span>
 					<span contenteditable="false" style="font-weight: bold">
-						{{medicine.family}}
+						{{contarindication.family}}
 					</span>
-					<span contenteditable="false" style="font-weight: bold" ng-show="medicine.medicineExmaples.length">
-						such as {{medicine.medicineExmaples}}.
+					<span contenteditable="false" style="font-weight: bold" ng-show="contarindication.medicineExmaples.length">
+						such as {{contarindication.medicineExmaples}}.
 					</span>
 
-					<span ng-show="medicine.waitBefore > 0">
+					<span ng-show="contarindication.waitBefore > 0">
 						<span contenteditable="true">
 							Cipralex may be started 
 						</span>
 						<span contenteditable="false" style="font-weight: bold">
-							{{medicine.waitBefore}} {{medicine.unitBefore}} 
+							{{contarindication.waitBefore}} {{contarindication.unitBefore}} 
 						</span>
 						<span contenteditable="true">
 							after discontinuing treatment with MAO inhibitors 
 						</span>
 					</span>
 
-					<span ng-show="medicine.waitAfter > 0"> 
+					<span ng-show="contarindication.waitAfter > 0"> 
 						<span contenteditable="false" style="font-weight: bold">
-							and at least  {{medicine.waitAfter}} {{medicine.unitAfter}}
+							and at least  {{contarindication.waitAfter}} {{contarindication.unitAfter}}
 						</span>
 						<span contenteditable="true">
 							should elapse after discontinuing Cipralex treatment before starting treatment with MAO inhibitors
@@ -121,8 +121,13 @@
 				</div>
 			</div>
 		</div>
-
+	
+		<footer style="margin-top: 100px;">
+			Copyrights to Pharmpool, May 2015
+		</footer>
 	</div>
+
+
 
 	<!-- Modules -->
     <script src="js/app.js"></script>

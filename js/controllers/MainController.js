@@ -1,20 +1,20 @@
 app.controller('MainController', ['$scope', '$templateCache', function($scope, $templateCache){
 	// $scope.outcomes = [];
-	$scope.medicines = [{
-		name: 'Example 0'
+	$scope.contarindications = [{
+		name: 'Example 0',
 	}];
 	var counter = 1; 
 
-	$scope.addMedicine = function(){
-		var medicine = {
+	$scope.addContraindication = function(){
+		var contarindication = {
 			name: 'Example ' + counter
 		};
-		$scope.medicines.push(medicine);
+		$scope.contarindications.push(contarindication);
 
 		counter += 1;
 	}
 
-	$scope.removeMedicine = function(){
-		$scope.medicines.pop();
+	$scope.removeContraindication = function(){
+		$scope.contarindications.pop();
 	}
 }]);
